@@ -1,0 +1,9 @@
+body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; margin: 0; }
+.container { max-width: 900px; margin: 24px auto; padding: 0 16px; }
+.centered { max-width: 520px; margin: 40px auto; padding: 0 16px; }
+.form { display: grid; gap: 12px; }
+.form input, .form textarea, .form select { padding: 10px; border: 1px solid #ddd; border-radius: 8px; }
+.form button { padding: 10px 14px; border: 0; border-radius: 8px; background: #111; color: #fff; }
+.error { color: #b00; }
+.grid { display: grid; gap: 12px; }
+.toprow { display: flex; justify-content: space-between; align-items: center; }
