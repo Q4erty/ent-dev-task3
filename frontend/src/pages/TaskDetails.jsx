@@ -2,6 +2,9 @@ import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import api from "../api";
 
+const formatDate = (date) =>
+    date ? new Date(date).toLocaleString() : "—";
+
 export default function TaskDetails() {
     const { id } = useParams();
     const [task, setTask] = useState(null);
@@ -23,19 +26,19 @@ export default function TaskDetails() {
     if (!task) return <p style={{ padding: 24 }}>Loading…</p>;
 
     return (
-        <div className="container">
+        <div className="centered">
             <h2>{task.title}</h2>
-            <div style={{ display: "flex", gap: 12 }}>
-                <span>Priority: <b>{task.priority}</b></span>
-                <span>Status: <b>{task.status}</b></span>
+            <p style={{ color: "#555" }}>{task.description || "No description"}</p>
+            <div className="meta">
+                <p><b>Status:</b> {task.status}</p>
+                <p><b>Due date:</b> {formatDate(task.dueDate)}</p>
+                <p><b>Owner:</b> {task.ownerUsername}</p>
+                <p><b>Created:</b> {formatDate(task.createdAt)}</p>
+                <p><b>Updated:</b> {formatDate(task.updatedAt)}</p>
             </div>
-            {task.description && <p>{task.description}</p>}
-            {task.user && (
-                <div style={{ fontSize: 14, color: "#666" }}>
-                    Owner: {task.user.username} (id: {task.user.id})
-                </div>
-            )}
-            <Link to={`/tasks/${task.id}/edit`}>Edit</Link>
+            <Link to={`/tasks/${task.id}/edit`} style={{ color: "var(--primary)" }}>
+                ✏️ Edit Task
+            </Link>
         </div>
     );
 }

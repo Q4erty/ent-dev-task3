@@ -19,26 +19,34 @@ export default function Register() {
     };
 
     return (
-        <div className="centered">
-            <h2>Register</h2>
-            <form onSubmit={submit} className="form">
-                <input
-                    placeholder="username"
-                    value={form.username}
-                    onChange={(e) => setForm({ ...form, username: e.target.value })}
-                    required
-                />
-                <input
-                    placeholder="password"
-                    type="password"
-                    value={form.password}
-                    onChange={(e) => setForm({ ...form, password: e.target.value })}
-                    required
-                />
-                <button>Sign up</button>
-                {error && <div className="error">{error}</div>}
-            </form>
-            <p>Already have an account? <Link to="/login">Login</Link></p>
+        <div className="register-container">
+            <div className="register-card">
+                <h2>Create Account ✨</h2>
+                <p className="subtitle">Join us and start managing your tasks easily</p>
+
+                <form onSubmit={submit} className="register-form">
+                    <input
+                        type="text"
+                        placeholder="Username"
+                        value={form.username}
+                        onChange={(e) => setForm({ ...form, username: e.target.value })}
+                        required
+                    />
+                    <input
+                        type="password"
+                        placeholder="Password"
+                        value={form.password}
+                        onChange={(e) => setForm({ ...form, password: e.target.value })}
+                        required
+                    />
+                    {error && <div className="error-message">{error}</div>}
+                    <button type="submit">Sign Up</button>
+                </form>
+
+                <p className="login-text">
+                    Already have an account? <Link to="/login">Login</Link>
+                </p>
+            </div>
         </div>
     );
 }

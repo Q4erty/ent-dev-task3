@@ -1,4 +1,4 @@
-package org.narxoz.backend.task;
+package org.narxoz.backend.task.domain;
 
 public enum TaskStatus {
     TODO,

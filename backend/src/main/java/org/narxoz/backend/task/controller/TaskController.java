@@ -1,7 +1,12 @@
-package org.narxoz.backend.task;
+package org.narxoz.backend.task.controller;
 
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.narxoz.backend.task.service.TaskService;
+import org.narxoz.backend.task.domain.dto.CreateTaskRequest;
+import org.narxoz.backend.task.domain.dto.TaskDto;
+import org.narxoz.backend.task.domain.dto.UpdateTaskRequest;
+import org.narxoz.backend.task.domain.entity.Task;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;

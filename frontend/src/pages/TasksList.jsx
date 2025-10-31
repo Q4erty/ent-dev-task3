@@ -10,7 +10,8 @@ export default function TasksList() {
 
     const load = async () => {
         try {
-            setLoading(true); setError("");
+            setLoading(true);
+            setError("");
             const { data } = await api.get("/api/tasks");
             setTasks(data);
         } catch {
@@ -20,12 +21,18 @@ export default function TasksList() {
         }
     };
 
-    useEffect(() => { load(); }, []);
+    useEffect(() => {
+        load();
+    }, []);
 
     const remove = async (id) => {
-        if (!window.confirm("Delete task?")) return;
-        await api.delete(`/api/tasks/${id}`);
-        setTasks((prev) => prev.filter((x) => x.id !== id));
+        try {
+            await api.delete(`/api/tasks/${id}`);
+            setTasks((prev) => prev.filter((x) => x.id !== id));
+        } catch (err) {
+            console.error("Failed to delete task:", err);
+            alert("Failed to delete task");
+        }
     };
 
     if (loading) return <p style={{ padding: 24 }}>Loading…</p>;
@@ -35,8 +42,9 @@ export default function TasksList() {
         <div className="container">
             <div className="toprow">
                 <h2>My Tasks</h2>
-                <Link to="/tasks/new">+ New</Link>
+                <Link to="/tasks/new" className="btn btn-primary">+ New</Link>
             </div>
+
             {tasks.length === 0 ? (
                 <p>No tasks yet</p>
             ) : (

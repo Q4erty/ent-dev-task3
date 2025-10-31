@@ -17,31 +17,37 @@ export default function Login() {
             login({ token: data.token, username: form.username });
             nav("/");
         } catch {
-            setError("Invalid credentials");
+            setError("Invalid username or password");
         }
     };
 
     return (
-        <div className="centered">
-            <h2>Login</h2>
-            <form onSubmit={submit} className="form">
-                <input
-                    placeholder="username"
-                    value={form.username}
-                    onChange={(e) => setForm({ ...form, username: e.target.value })}
-                    required
-                />
-                <input
-                    placeholder="password"
-                    type="password"
-                    value={form.password}
-                    onChange={(e) => setForm({ ...form, password: e.target.value })}
-                    required
-                />
-                <button>Login</button>
-                {error && <div className="error">{error}</div>}
-            </form>
-            <p>No account? <Link to="/register">Register</Link></p>
+        <div className="login-container">
+            <div className="login-card">
+                <h2>Welcome Back 👋</h2>
+                <p className="subtitle">Login to continue to your tasks</p>
+                <form onSubmit={submit} className="login-form">
+                    <input
+                        type="text"
+                        placeholder="Username"
+                        value={form.username}
+                        onChange={(e) => setForm({ ...form, username: e.target.value })}
+                        required
+                    />
+                    <input
+                        type="password"
+                        placeholder="Password"
+                        value={form.password}
+                        onChange={(e) => setForm({ ...form, password: e.target.value })}
+                        required
+                    />
+                    {error && <div className="error-message">{error}</div>}
+                    <button type="submit">Login</button>
+                </form>
+                <p className="register-text">
+                    No account? <Link to="/register">Register here</Link>
+                </p>
+            </div>
         </div>
     );
 }

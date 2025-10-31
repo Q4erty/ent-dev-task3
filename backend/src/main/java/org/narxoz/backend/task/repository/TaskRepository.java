@@ -1,5 +1,6 @@
-package org.narxoz.backend.task;
+package org.narxoz.backend.task.repository;
 
+import org.narxoz.backend.task.domain.entity.Task;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

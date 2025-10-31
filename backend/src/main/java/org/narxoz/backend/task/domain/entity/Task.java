@@ -1,8 +1,9 @@
-package org.narxoz.backend.task;
+package org.narxoz.backend.task.domain.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
 import org.narxoz.backend.auth.domain.entity.User;
+import org.narxoz.backend.task.domain.TaskStatus;
 
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
@@ -31,7 +32,7 @@ public class Task {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "owner_id")
-    private User owner; // владелец задачи
+    private User owner;
 
     @Column(nullable = false, updatable = false)
     private OffsetDateTime createdAt;

@@ -1,6 +1,7 @@
-package org.narxoz.backend.task;
+package org.narxoz.backend.task.domain.dto;
 
 import lombok.Data;
+import org.narxoz.backend.task.domain.TaskStatus;
 
 import java.time.LocalDate;
 

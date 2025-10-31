@@ -1,9 +1,13 @@
-package org.narxoz.backend.task;
+package org.narxoz.backend.task.service;
 
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.narxoz.backend.auth.domain.entity.User;
 import org.narxoz.backend.auth.repository.UserRepository;
+import org.narxoz.backend.task.repository.TaskRepository;
+import org.narxoz.backend.task.domain.TaskStatus;
+import org.narxoz.backend.task.domain.dto.TaskDto;
+import org.narxoz.backend.task.domain.entity.Task;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
