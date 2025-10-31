@@ -41,7 +41,6 @@ public class AuthController {
             Authentication auth = authenticationProvider.authenticate(
                     new UsernamePasswordAuthenticationToken(request.getUsername(), request.getPassword())
             );
-            // if authentication succeeds, create token
             String token = jwtService.generateToken(request.getUsername());
             return ResponseEntity.ok(new AuthResponse(token));
         } catch (AuthenticationException ex) {
