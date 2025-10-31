@@ -17,13 +17,11 @@
 </p>
 
 <p align="center">
-  <a href="#overview">Overview</a> •
-  <a href="#project-structure">Structure</a> •
-  <a href="#getting-started">Getting Started</a> •
-  <a href="#usage">Usage</a> •
-  <a href="#testing">Testing</a> •
-  <a href="#showcase">Showcase</a> •
-  <a href="#license">License</a>
+  <a href="#-overview">Overview</a> •
+  <a href="#-project-structure">Structure</a> •
+  <a href="#-getting-started">Getting Started</a> •
+  <a href="#-usage">Usage</a> •
+  <a href="#-license">License</a>
 </p>
 
 ---
